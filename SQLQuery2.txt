@@ -1,0 +1,172 @@
+create database blood
+use blood
+
+CREATE TABLE blood_banks (
+id int primary key,
+blood_bank varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO blood_banks (id, blood_bank, created_at, updated_at) 
+VALUES(1, 'Rotary Club Blood Bank', '2020-12-12 09:43:17', '2020-12-12 09:43:17'),
+(2, 'Sri Surya Sakthi Voluntary Blood Bank', '2020-12-12 09:43:17', '2020-12-12 09:43:17'),
+(3, 'Govt. Blood Bank', '2020-12-12 09:43:17', '2020-12-12 09:43:17');
+
+CREATE TABLE blood_groups (
+id int,
+blood_group varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO blood_groups (id, blood_group, created_at, updated_at) 
+VALUES(1, 'A-positive', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(2, 'A-negative', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(4, 'B-positive', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(5, 'B-negative', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(3, 'AB-positive', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(6, 'AB-negative', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(7, 'O-positive', '2020-12-12 09:34:00', '2020-12-12 09:34:00'),
+(8, 'O-negative', '2020-12-12 09:34:00', '2020-12-12 09:34:00');
+ALTER TABLE blood_groups
+ADD PRIMARY KEY ("id");
+select * from blood_banks
+
+CREATE TABLE camp (
+id int,
+camp varchar(100),
+address varchar(100),
+venue varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO camp (id, camp, address, venue, created_at, updated_at) 
+VALUES(1, 'amaravathi_bloodcamp', 'amaravathi', 'mangalagiri', '2020-12-12 11:10:48', '2020-12-12 11:10:48'),
+(2, 'vizag_bloodcamp', 'vishakapatnam', 'arakuvalley', '2020-12-12 11:10:48', '2020-12-12 11:10:48'),
+(3, 'vizag2_bloodcamp', 'vishakaptnam', 'steelplant', '2020-12-12 11:10:48', '2020-12-12 11:10:48');
+
+
+CREATE TABLE camp_details (
+id int,
+camp_id varchar(100),
+no_doctors varchar(100),
+no_nurse varchar(100),
+no_beds varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+ALTER TABLE camp_details
+ADD PRIMARY KEY ("id");
+
+INSERT INTO camp_details (id, camp_id, no_doctors, no_nurse, no_beds, created_at, updated_at) VALUES
+(1, '1', '10', '10', '25', '2020-12-12 11:12:08', '2020-12-12 11:12:08'),
+(2, '2', '15', '12', '20', '2020-12-12 11:12:08', '2020-12-12 11:12:08'),
+(3, '3', '10', '18', '15', '2020-12-12 11:12:08', '2020-12-12 11:12:08');
+select * from camp_details
+
+CREATE TABLE camp_members (
+id int primary key,
+staff_id varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO camp_members (id, staff_id, created_at, updated_at) 
+VALUES(1, '1', '2020-12-12 11:12:53', '2020-12-16 15:39:36'),
+(2, '1', '2020-12-12 11:12:53', '2020-12-16 15:39:40'),
+(3, '2', '2020-12-12 11:12:53', '2020-12-16 15:39:44');
+
+select * from camp_members
+
+CREATE TABLE staff (
+id int primary key,
+staff_id varchar(100),
+name varchar(100),
+address varchar(100),
+mobile varchar(100),
+alternate_mobile varchar(100),
+qualification varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO staff (id, staff_id, name, address, mobile, alternate_mobile, qualification, created_at, updated_at) 
+VALUES(1, '1', 'jhon', 'mumbai', '1254785412', '6985471254', 'MBBS', '2020-12-12 12:57:42', '2020-12-12 12:57:42'),
+(2, '2', 'pallavi', 'delhi', '5847563214', '9654871254', 'bs.nursing', '2020-12-12 12:57:42', '2020-12-12 12:57:42'),
+(3, '3', 'taapsee ', 'hyderabad', '2587413690', '36958214441', 'technician', '2020-12-12 12:57:42', '2020-12-12 12:57:42');
+select * from staff
+
+CREATE TABLE donors (
+id int primary key,
+donor_id varchar(100),
+name varchar(100),
+gender varchar(100),
+age varchar(100),
+address varchar(100),
+mobile varchar(100),
+alternate_mobile varchar(100),
+blood_group varchar(100),
+disease varchar(100),
+units varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO donors (id, donor_id, name, gender, age, address, mobile, alternate_mobile, blood_group, disease,units ,created_at, updated_at) 
+VALUES(1, 'dn1', 'aamirkhan', 'male', '45', 'mumbai', '1234567890', '9876543210', '7', '-','1', '2020-12-12 12:00:04', '2020-12-12 12:00:04'),
+(2, 'dn1', 'salmankhan', 'male', '50', 'mumbai', '0987456321', '5698741254', '7', '-','2', '2020-12-12 12:00:04', '2020-12-12 12:00:04'),
+(3, 'dn1', 'shahrukhkhan', 'male', '40', 'mumbai', '5987436514', '5987456321', '7', '-','3', '2020-12-12 12:00:04', '2020-12-12 12:00:04');
+select * from donors
+
+CREATE TABLE hospitals (
+id int primary key,
+hospitals varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO hospitals (id, hospitals, created_at, updated_at) 
+VALUES(1, 'A.N. Beach Hospital', '2020-12-12 12:01:27', '2020-12-12 12:01:27'),
+(2, 'Aarif Nursing Home', '2020-12-12 12:01:28', '2020-12-12 12:01:28'),
+(3, 'AakarAsha Hospitals', '2020-12-12 12:01:28', '2020-12-12 12:01:28');
+select * from hospitals
+
+CREATE TABLE hospital_blood (
+id int primary key,
+hospital_id varchar(100),
+blood_group varchar(100),
+date date,
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO hospital_blood (id, hospital_id, blood_group, date, created_at, updated_at) 
+VALUES (1, '1', '7', '2020-05-03', '2020-12-12 12:02:24', '2020-12-12 12:02:24'),
+(2, '2', '6', '2020-08-03', '2020-12-12 12:02:24', '2020-12-12 12:02:24'),
+(3, '3', '5', '2020-02-03', '2020-12-12 12:02:24', '2020-12-12 12:02:24');
+select * from hospital_blood
+
+CREATE TABLE staff_types (
+id int primary key,
+type varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO staff_types (id, type, created_at, updated_at) 
+VALUES (1, 'doctor', '2020-12-12 12:54:15', '2020-12-12 12:54:15'),
+(2, 'nurse', '2020-12-12 12:54:15', '2020-12-12 12:54:15'),
+(3, 'technician', '2020-12-12 12:54:15', '2020-12-12 12:54:15'),
+(4, 'security', '2020-12-12 12:54:15', '2020-12-12 12:54:15');
+select * from staff_types
+
+CREATE TABLE patients (
+id int primary key,
+patient_id varchar(50),
+name varchar(100),
+mobile varchar(20),
+alternate_mobile varchar(20),
+disease varchar(100),
+medical_reports varchar(100),
+created_at datetime ,
+updated_at datetime );
+
+INSERT INTO patients (id, patient_id, name, mobile, alternate_mobile, disease, medical_reports, created_at, updated_at) 
+VALUES(1, 'p1', 'sandeep', '8524716932', '3698524671', '-', '-', '2020-12-12 12:06:58', '2020-12-12 12:06:58'),
+(2, 'p2', 'asif', '8965412789', '3579514863', '-', '-', '2020-12-12 12:06:58', '2020-12-12 12:06:58'),
+(3, 'p3', 'javeed', '3479852146', '6754128963', '-', '-', '2020-12-12 12:06:58', '2020-12-12 12:06:58');
+select * from patients
+
